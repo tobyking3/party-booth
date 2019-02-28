@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "894877685462",
+    "firebase_url": "https://partyboothapp.firebaseio.com",
+    "project_id": "partyboothapp",
+    "storage_bucket": "partyboothapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894877685462:android:26ba99c0ff428812",
+        "android_client_info": {
+          "package_name": "king.toby.partybooth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894877685462-doq5bdcirqcp6lb4b9qvtu1er41cb6bm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "king.toby.partybooth",
+            "certificate_hash": "85cb08598eaa80a9c9432cd919961cb75b25ac97"
+          }
+        },
+        {
+          "client_id": "894877685462-lgg3u25p6rlhn7dhk58eu6od79bf2s4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlEwYVjGkLgA8J7jQPtcfDZsnaJex5rRY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894877685462-lgg3u25p6rlhn7dhk58eu6od79bf2s4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
