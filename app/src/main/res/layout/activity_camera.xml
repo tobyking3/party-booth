@@ -18,27 +18,27 @@
         app:camera_permissions="camera" />
 
     <TextView
-        android:id="@+id/text_countdown"
+        android:id="@+id/text_pose"
+        android:alpha="0.7"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="85dp"
         android:textColor="@color/white"
         android:textAlignment="center"
-        android:textSize="100dp"
-        android:textStyle="bold"/>
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_preview_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_gradient_white"
-        android:text="Preview"
-        android:textColor="@color/darkSlate"
+        android:autoSizeTextType="uniform"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="20sp"
-        android:textSize="30dp"
-        android:padding="10dp"/>
+        android:background="@drawable/background_gradient_orange"/>
+
+    <TextView
+        android:id="@+id/text_countdown"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="100dp"
+        android:textStyle="bold"/>
 
 </android.support.constraint.ConstraintLayout>

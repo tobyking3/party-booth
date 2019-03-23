@@ -2,20 +2,13 @@ package king.toby.partybooth.models;
 
 public class User {
 
-    private String user_id;
     private String display_name;
+    private String party_id;
 
-    public User(String user_id, String display_name) {
-        this.user_id = user_id;
+    public User(){}
+
+    public User(String display_name) {
         this.display_name = display_name;
-    }
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
     }
 
     public String getDisplay_name() {
@@ -28,9 +21,14 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "user_id='" + user_id + '\'' +
-                ", display_name='" + display_name + '\'' +
-                '}';
+        return "User{" + ", display_name='" + display_name + '\'' + '}';
+    }
+
+    public String getParty_id() {
+        return party_id;
+    }
+
+    public void setParty_id(String party_id) {
+        this.party_id = party_id;
     }
 }
