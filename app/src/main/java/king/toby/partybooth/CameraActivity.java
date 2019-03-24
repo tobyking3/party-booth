@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static king.toby.partybooth.models.Pose.poseList;
 
@@ -71,7 +70,8 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     String generatePose() {
-        final int randomNumber = (int) (Math.random() * poseList.size() + 1);
+        final int randomNumber = (int) (Math.random() * poseList.size());
+        Log.i("random number", String.valueOf(randomNumber));
         final String pose = poseList.get(randomNumber);
 
         if(currentPoses.contains(pose)){

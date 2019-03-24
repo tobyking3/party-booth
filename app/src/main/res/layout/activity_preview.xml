@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient_slate"
-    android:orientation="vertical"
-    android:id="@+id/activity_preview">
+    android:id="@+id/activity_preview"
+    android:background="#000000">
 
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="600sp"
+        android:id="@+id/img_bitmap"
+        android:background="#ff69b4"/>
 
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="upload"
+        android:id="@+id/btn_upload"
+        android:padding="12dp"
+        android:background="@drawable/button_gradient_orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"
+        />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
