@@ -46,12 +46,9 @@
             android:label="Camera"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".RecyclerViewFragment"
-            android:label="Feed"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".FeedActivity"></activity>
+
+        <activity android:name=".GalleryActivity"/>
+        <activity android:name=".FeedActivity"/>
     </application>
 
 </manifest>
