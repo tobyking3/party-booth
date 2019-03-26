@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static king.toby.partybooth.models.Pose.poseList;
 
@@ -71,7 +72,6 @@ public class CameraActivity extends AppCompatActivity {
 
     String generatePose() {
         final int randomNumber = (int) (Math.random() * poseList.size());
-        Log.i("random number", String.valueOf(randomNumber));
         final String pose = poseList.get(randomNumber);
 
         if(currentPoses.contains(pose)){
@@ -117,10 +117,7 @@ public class CameraActivity extends AppCompatActivity {
             public void onFinish() {
                 Intent startPreviewActivity = new Intent(CameraActivity.this, PreviewActivity.class);
                 Bundle b = new Bundle();
-                b.putString("pose1", currentPoses.get(0));
-                b.putString("pose2", currentPoses.get(1));
-                b.putString("pose3", currentPoses.get(2));
-                b.putString("pose4", currentPoses.get(3));
+                b.putStringArrayList("poses", currentPoses);
                 startPreviewActivity.putExtras(b);
                 startActivity(startPreviewActivity);
                 finish();

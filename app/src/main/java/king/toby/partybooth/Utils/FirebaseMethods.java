@@ -8,21 +8,17 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.security.InvalidParameterException;
 
 import king.toby.partybooth.listeners.AddPartyToUserListener;
+import king.toby.partybooth.listeners.GetUserPartyIDListener;
 import king.toby.partybooth.models.Party;
 import king.toby.partybooth.models.User;
+import king.toby.partybooth.myCallbackInterface;
 
 public class FirebaseMethods {
     private static final String TAG = "FirebaseMethods";
@@ -43,11 +39,6 @@ public class FirebaseMethods {
         partiesRef = mDatabase.getReference("parties/");
         userRef = mDatabase.getReference("users/");
         mContext = context;
-
-//        //sets user ID if current user is null
-//        if(mAuth.getCurrentUser() != null){
-//            userID = mAuth.getCurrentUser().getUid();
-//        }
     }
 
     public void registerNewEmail(final String email, final String password) {
@@ -105,7 +96,7 @@ public class FirebaseMethods {
             partyID.setValue(party);
 
         } catch (Exception e) {
-            Log.e(TAG, "firebase fucked up");
+            Log.e(TAG, "firebase messed up");
             e.printStackTrace();
         }
     }
@@ -114,5 +105,8 @@ public class FirebaseMethods {
         partiesRef.child(partyID).addListenerForSingleValueEvent(new AddPartyToUserListener(activity));
     }
 
+    public void getUserPartyID(String userID, myCallbackInterface cb) {
+        userRef.child(userID).addListenerForSingleValueEvent(new GetUserPartyIDListener(cb));
+    }
 
 }
