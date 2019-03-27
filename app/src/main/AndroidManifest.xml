@@ -46,9 +46,7 @@
             android:label="Camera"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
-        <activity android:name=".GalleryActivity"/>
-        <activity android:name=".FeedActivity"/>
+        <activity android:name=".FeedActivity"></activity>
     </application>
 
 </manifest>
