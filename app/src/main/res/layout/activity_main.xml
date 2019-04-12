@@ -1,128 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient_slate"
-    android:orientation="vertical">
+    android:background="@drawable/background_gradient_slate">
 
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-        <!--<ImageView-->
-            <!--android:layout_marginTop="80dp"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:src="@drawable/logo"-->
-            <!--android:layout_centerHorizontal="true"/>-->
+    <ImageButton
+        android:id="@+id/btn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginLeft="5sp"
+        android:padding="10dp"
+        android:background="@android:color/transparent"
+        android:elevation="8dp"
+        android:src="@drawable/ic_settings"
+        android:onClick="showSettings"/>
 
-    <!--</RelativeLayout>-->
+    <ImageButton
+        android:id="@+id/btn_party_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="5sp"
+        android:padding="10dp"
+        android:background="@android:color/transparent"
+        android:elevation="8dp"
+        android:src="@drawable/ic_create_party"
+        android:onClick="showSettings"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Get_Name_Text"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/text_party_name"/>
-
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:paddingTop="55dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp">
 
-        <EditText
-            android:id="@+id/input_create_party"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="25dp"/>
+
+        <TextView
+            android:id="@+id/text_party_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="21sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/Get_Name_Text"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Party Name"
-            android:background="@color/white"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_create_party"
-        android:background="@drawable/button_gradient_orange"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="-2dp"
-        android:layout_gravity="center"
-        android:text="Create a party"
-        android:textSize="30dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_margin="15dp"
-        />
+            <EditText
+                android:id="@+id/input_join_party"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/montserrat"
+                android:hint=" Party Code"
+                android:inputType="text" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp">
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/input_join_party"
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_join_party"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Enter PartyID"
-            android:background="@color/white"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_gradient_orange"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="12dp"
+            android:text="Join a party"
+            android:textColor="@color/white" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_join_party"
-        android:background="@drawable/button_gradient_orange"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="-2dp"
-        android:layout_gravity="center"
-        android:text="Join a party"
-        android:textSize="30dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_margin="15dp"
-        />
+    </LinearLayout>
 
-    <android.support.v7.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btn_camera"
-        android:background="@color/grey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:text="CAMERA"
-        android:textColor="@color/darkSlate"
-        android:textStyle="bold"
-        />
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:scaleType="fitXY"
+        android:padding="20dp"
+        android:background="@drawable/button_gradient_orange"
+        android:elevation="8dp"
+        android:src="@drawable/ic_camera"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_logout"
-        android:background="@color/grey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:text="LOG OUT"
-        android:textColor="@color/darkSlate"
-        android:textStyle="bold"
-        />
-
-</LinearLayout>
+</RelativeLayout>

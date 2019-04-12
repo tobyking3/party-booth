@@ -6,21 +6,25 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import king.toby.partybooth.Utils.FirebaseMethods;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, android.support.v7.widget.PopupMenu.OnMenuItemClickListener {
 
     private static final String TAG = "MainActivity";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private AppCompatButton mLogoutBtn, mCameraBtn, mJoinPartyBtn, mCreatePartyBtn;
+    private ImageButton mCameraBtn, mPartyCreationBtn;
+    private AppCompatButton mJoinPartyBtn;
     private EditText mJoinPartyInput, mCreatePartyInput;
     private String joinPartyID, createPartyID;
     private FirebaseMethods firebaseMethods;
@@ -34,19 +38,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Create Firebase Object
         firebaseMethods = new FirebaseMethods(this);
 
-        mLogoutBtn = findViewById(R.id.btn_logout);
         mCameraBtn = findViewById(R.id.btn_camera);
 
         mJoinPartyBtn = findViewById(R.id.btn_join_party);
         mJoinPartyInput = findViewById(R.id.input_join_party);
 
-        mCreatePartyBtn = findViewById(R.id.btn_create_party);
-        mCreatePartyInput = findViewById(R.id.input_create_party);
+        mPartyCreationBtn = findViewById(R.id.btn_party_creation);
 
         mJoinPartyBtn.setOnClickListener(this);
-        mCreatePartyBtn.setOnClickListener(this);
+        mPartyCreationBtn.setOnClickListener(this);
 
-        mLogoutBtn.setOnClickListener(this);
         mCameraBtn.setOnClickListener(this);
 
         //INITIALIZE FIREBASE
@@ -75,9 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btn_logout:
-                FirebaseAuth.getInstance().signOut();
-                break;
             case R.id.btn_camera:
                 Log.d(TAG, "onClick: starting camera activity");
                 Intent startCameraActivity = new Intent(this, CameraActivity.class);
@@ -87,10 +85,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 joinPartyID = String.valueOf(mJoinPartyInput.getText());
                 firebaseMethods.addUserPartyID(joinPartyID, this);
                 break;
-            case R.id.btn_create_party:
-                createPartyID = String.valueOf(mCreatePartyInput.getText());
-                firebaseMethods.addNewParty(createPartyID);
+            case R.id.btn_party_creation:
+                Toast.makeText(this, "PARTY CREATION", Toast.LENGTH_LONG).show();
+                Intent startCreatePartyActivity = new Intent(this, CreatePartyActivity.class);
+                startActivity(startCreatePartyActivity);
                 break;
+        }
+    }
+
+    public void showSettings(View v){
+        android.support.v7.widget.PopupMenu popupMenu = new android.support.v7.widget.PopupMenu(this, v);
+        popupMenu.setOnMenuItemClickListener(this);
+        popupMenu.inflate(R.menu.settings_menu);
+        popupMenu.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.settings_menu_logout:
+                Toast.makeText(this, "logout clicked", Toast.LENGTH_LONG).show();
+                FirebaseAuth.getInstance().signOut();
+                return true;
+                default:
+                    return false;
         }
     }
 }

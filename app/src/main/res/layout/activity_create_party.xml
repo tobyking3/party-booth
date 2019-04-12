@@ -5,6 +5,32 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient_slate">
 
+    <ImageButton
+        android:id="@+id/btn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginLeft="5sp"
+        android:padding="10dp"
+        android:background="@android:color/transparent"
+        android:elevation="8dp"
+        android:src="@drawable/ic_settings"
+        android:onClick="showSettings"/>
+
+    <ImageButton
+        android:id="@+id/btn_party_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="5sp"
+        android:padding="10dp"
+        android:background="@android:color/transparent"
+        android:elevation="8dp"
+        android:src="@drawable/ic_create_party"
+        android:onClick="showSettings"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,23 +47,16 @@
             android:layout_marginBottom="25dp"/>
 
         <TextView
+            android:id="@+id/text_create_party"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="21sp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Welcome to PartyBooth"
+            android:text="Create your party"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="21sp"
             android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/montserrat"
-            android:text="Login to get the party started!"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -46,14 +65,13 @@
             android:layout_marginBottom="8dp">
 
             <EditText
-                android:id="@+id/input_login_email"
+                android:id="@+id/input_create_party_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:textSize="14sp" />
+                android:hint=" Enter Party Name"
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -64,61 +82,33 @@
             android:layout_marginBottom="8dp">
 
             <EditText
-                android:id="@+id/input_login_password"
-                android:layout_width="match_parent"
+                android:id="@+id/input_create_party_description"
+                android:hint=" Enter Party Name"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:minLines="6"
+                android:gravity="top|left"
+                android:maxLines="10"
                 android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:scrollbars="vertical"
                 android:background="@color/white"
-                android:fontFamily="@font/montserrat"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:textSize="14sp" />
-
+                />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_create_party"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/button_gradient_orange"
             android:fontFamily="@font/montserrat_bold"
             android:padding="12dp"
-            android:text="Login"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/link_create_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:clickable="true"
-            android:fontFamily="@font/montserrat_bold"
-            android:gravity="center"
-            android:text="Not registered? Create an account"
-            android:textColor="@color/grey"
-            android:textStyle="bold" />
+            android:text="Create party"
+            android:textColor="@color/white" />
 
     </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
-
-    <TextView
-        android:id="@+id/pleaseWait"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/progressBar"
-        android:layout_alignRight="@id/progressBar"
-        android:layout_alignBottom="@id/progressBar"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Logging In..."
-        android:textColor="@color/white"
-        android:textSize="16sp" />
 
 
 </RelativeLayout>
