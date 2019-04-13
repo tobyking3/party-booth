@@ -31,6 +31,7 @@ public class FirebaseMethods {
     private DatabaseReference partiesRef;
     private DatabaseReference userRef;
     private Context mContext;
+    private DatabaseReference partyID;
 
     public FirebaseMethods(Context context) {
         mAuth = FirebaseAuth.getInstance();
@@ -87,18 +88,25 @@ public class FirebaseMethods {
         }
     }
 
-    public void addNewParty(String partyName) {
+    public String addNewParty(String partyName, String partyDescription) {
 
-        Party party = new Party(partyName);
+        Party party = new Party(partyName, partyDescription);
 
         try {
-            DatabaseReference partyID = partiesRef.push();
+            partyID = partiesRef.push();
+            Log.d(TAG, "addNewParty: parties ref = " + partyID.getKey());
             partyID.setValue(party);
 
         } catch (Exception e) {
             Log.e(TAG, "firebase messed up");
             e.printStackTrace();
         }
+
+        return partyID.getKey();
+    }
+
+    public void getPartyID() {
+
     }
 
     public void addUserPartyID(String partyID, Activity activity) {

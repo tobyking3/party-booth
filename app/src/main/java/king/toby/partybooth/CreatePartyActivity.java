@@ -5,9 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +27,9 @@ public class CreatePartyActivity extends AppCompatActivity implements View.OnCli
     private AppCompatButton mCreatePartyBtn;
     private EditText mCreatePartyInputName, mCreatePartyInputDescription;
     private String createName;
+    private String createDescription;
     private FirebaseMethods firebaseMethods;
+    private TextView mGeneratedPartyCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class CreatePartyActivity extends AppCompatActivity implements View.OnCli
         mCreatePartyBtn = findViewById(R.id.btn_create_party);
         mCreatePartyInputName = findViewById(R.id.input_create_party_name);
         mCreatePartyInputDescription = findViewById(R.id.input_create_party_description);
+        mGeneratedPartyCode = findViewById(R.id.text_party_code);
 
         mCreatePartyBtn.setOnClickListener(this);
 
@@ -64,7 +69,8 @@ public class CreatePartyActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId()){
             case R.id.btn_create_party:
                 createName = String.valueOf(mCreatePartyInputName.getText());
-                firebaseMethods.addNewParty(createName);
+                createDescription = String.valueOf(mCreatePartyInputDescription.getText());
+                mGeneratedPartyCode.setText(firebaseMethods.addNewParty(createName, createDescription));
                 break;
         }
     }

@@ -1,11 +1,11 @@
 package king.toby.partybooth.listeners;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,12 +21,14 @@ public class AddPartyToUserListener implements ValueEventListener {
 
     private final Activity activity;
     private final DatabaseReference userRef;
-    private final TextView textView;
+    private final TextView partyNameTextView;
+    private final TextView partyDescriptionTextView;
 
     public AddPartyToUserListener(Activity activity) {
         userRef = FirebaseDatabase.getInstance().getReference("users/");
         this.activity = activity;
-        this.textView = activity.findViewById(R.id.text_party_name);
+        this.partyNameTextView = activity.findViewById(R.id.text_party_name);
+        this.partyDescriptionTextView = activity.findViewById(R.id.text_party_description);
     }
 
     @Override
@@ -44,9 +46,13 @@ public class AddPartyToUserListener implements ValueEventListener {
             userRef.child(id)
                     .child("party_id")
                     .setValue(dataSnapshot.getKey());
-            textView.setText(p.getPartyName());
+
+            partyNameTextView.setText(p.getPartyName());
+            partyDescriptionTextView.setText(p.getPartyDescription());
 
         } else {
+            partyDescriptionTextView.setText("Party code not recognized, please try again!");
+            partyDescriptionTextView.setTextColor(Color.RED);
             Log.e(TAG, "Party doesn't exist");
         }
     }

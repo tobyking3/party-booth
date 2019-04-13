@@ -5,19 +5,23 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import king.toby.partybooth.Utils.FirebaseMethods;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, android.support.v7.widget.PopupMenu.OnMenuItemClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener, myCallbackInterface {
 
     private static final String TAG = "MainActivity";
     private FirebaseAuth mAuth;
@@ -28,6 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mJoinPartyInput, mCreatePartyInput;
     private String joinPartyID, createPartyID;
     private FirebaseMethods firebaseMethods;
+
+    private DatabaseReference userRef;
+    private TextView partyNameTextView;
+    private TextView partyDescriptionTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mCameraBtn.setOnClickListener(this);
 
+//        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        userRef = FirebaseDatabase.getInstance().getReference("users/").child(id);
+//        userRef.child("party_id").exists();
+
         //INITIALIZE FIREBASE
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -70,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
         mAuth.addAuthStateListener(mAuthListener);
+        //Get user ID
+        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        firebaseMethods.getUserPartyID(id, MainActivity.this);
     }
 
     // =====================ON CLICK HANDLER======================
@@ -109,6 +124,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
                 default:
                     return false;
+        }
+    }
+
+    @Override
+    public void onCallback(String value) {
+        if(value != null){
+            firebaseMethods.addUserPartyID(value, this);
+            Log.i(TAG, "onCallback: " + value);
         }
     }
 }
