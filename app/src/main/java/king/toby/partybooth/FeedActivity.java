@@ -1,5 +1,6 @@
 package king.toby.partybooth;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -95,7 +96,15 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
 
     @Override
     public void onItemClick(int position) {
-        Log.i("LOGGED POSITION", "onItemClick: " + mUploads.get(position));
+        Intent fullScreenIntent = new Intent(this, FullScreenActivity.class);
         Upload clickedImage = mUploads.get(position);
+        fullScreenIntent.putExtra("image_url", clickedImage.getImageUrl());
+        fullScreenIntent.putExtra("image_name", clickedImage.getName());
+
+        startActivity(fullScreenIntent);
+
+//        Log.i("LOGGED POSITION", "onItemClick: " + mUploads.get(position));
+
+
     }
 }

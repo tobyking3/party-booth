@@ -49,10 +49,19 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 .into(holder.imageView);
     }
 
+
+
+
+
     @Override
     public int getItemCount() {
         return mUploads.size();
     }
+
+
+
+
+
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewName;
@@ -64,17 +73,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
             textViewName = itemView.findViewById(R.id.text_view_name);
             imageView = itemView.findViewById(R.id.image_view_upload);
-            saveButton = itemView.findViewById(R.id.image_view_save);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(mListener != null){
-
-                        ImageView clickedImage = view.findViewById(R.id.image_view_upload);
-
-                        Log.i("IMAGE VIEW", "ImageViewHolder: " + clickedImage);
-
                         int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
                             mListener.onItemClick(position);
