@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="55dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -38,13 +38,13 @@
             android:layout_marginBottom="8dp">
 
             <EditText
-                android:id="@+id/input_register_email"
+                android:id="@+id/input_register_username"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:hint=" Full Name"
+                android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -55,13 +55,13 @@
             android:layout_marginBottom="8dp">
 
             <EditText
-                android:id="@+id/input_register_username"
+                android:id="@+id/input_register_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
-                android:hint="Full Name"
-                android:inputType="text" />
+                android:hint=" Email"
+                android:inputType="textEmailAddress" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -74,10 +74,10 @@
             <EditText
                 android:id="@+id/input_register_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
-                android:hint="Password"
+                android:hint=" Password"
                 android:inputType="textPassword" />
 
         </android.support.design.widget.TextInputLayout>
@@ -86,12 +86,13 @@
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/button_gradient_orange"
+            android:background="@drawable/button_orange"
             android:fontFamily="@font/montserrat_bold"
             android:padding="12dp"
             android:text="Register"
+            android:textSize="16sp"
             android:textColor="@color/white" />
 
     </LinearLayout>
@@ -114,6 +115,19 @@
         android:text="Creating account..."
         android:textColor="@color/white"
         android:textSize="21dp" />
+
+    <TextView
+        android:id="@+id/link_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:clickable="true"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Already got an account? Sign in"
+        android:textColor="@color/grey"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"/>
 
 
 </RelativeLayout>

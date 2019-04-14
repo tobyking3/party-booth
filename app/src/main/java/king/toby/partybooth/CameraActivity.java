@@ -2,6 +2,7 @@ package king.toby.partybooth;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -87,6 +88,8 @@ public class CameraActivity extends AppCompatActivity {
 
     private void startTimer() {
 
+        final MediaPlayer cameraSnap = MediaPlayer.create(this, R.raw.camera_sound);
+
         new CountDownTimer(21000, 1000) {
             private int imgNum = 0;
             private int displayTimer = 6;
@@ -109,6 +112,7 @@ public class CameraActivity extends AppCompatActivity {
                     }
                     displayTimer = 6;
                     countdownText.setText("SNAP!");
+                    cameraSnap.start();
                     takePhoto(imgNum);
                     imgNum++;
                 }

@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="55dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -65,10 +65,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="21sp"
             android:fontFamily="@font/montserrat"
-            android:background="@color/white"
-            android:textColor="@color/darkSlate"
+            android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:padding="2dp"
+            android:text="Enter the code provided by your event organiser to join the party and start sharing and viewing your PartyBooth photos."/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -79,7 +80,7 @@
             <EditText
                 android:id="@+id/input_join_party"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
                 android:hint=" Party Code"
@@ -91,9 +92,8 @@
             android:id="@+id/btn_join_party"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/button_gradient_orange"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_orange"
             android:fontFamily="@font/montserrat_bold"
             android:padding="12dp"
             android:text="Join a party"

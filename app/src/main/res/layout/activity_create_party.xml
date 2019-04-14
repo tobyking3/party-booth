@@ -36,8 +36,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="55dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="21sp"
+
             android:fontFamily="@font/montserrat_bold"
             android:text="Create your party"
             android:textColor="@color/white"
@@ -67,7 +67,7 @@
             <EditText
                 android:id="@+id/input_create_party_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
                 android:hint=" Enter Party Name"
@@ -83,7 +83,7 @@
 
             <EditText
                 android:id="@+id/input_create_party_description"
-                android:hint=" Enter Party Name"
+                android:hint=" Write a message for your guests"
                 android:inputType="textMultiLine"
                 android:lines="8"
                 android:minLines="6"
@@ -100,7 +100,7 @@
             android:id="@+id/btn_create_party"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_gradient_orange"
             android:fontFamily="@font/montserrat_bold"
@@ -113,12 +113,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="21sp"
+            android:layout_marginBottom="10sp"
             android:fontFamily="@font/montserrat"
             android:text="Your sharable party code:"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/text_party_code"
@@ -126,11 +126,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="21sp"
-            android:fontFamily="@font/montserrat"
-            android:text=""
-            android:textColor="@color/darkSlate"
-            android:background="@color/grey"
+            android:fontFamily="@font/montserrat_bold"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="dwkdoewodewfk"
+            android:textColor="@color/lightOrange"
             android:textSize="21sp"
             android:textStyle="bold" />
 

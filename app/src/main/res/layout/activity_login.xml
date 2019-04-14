@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="55dp"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -42,13 +42,13 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/input_login_email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
                 android:hint="Email"
@@ -66,7 +66,7 @@
             <EditText
                 android:id="@+id/input_login_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
                 android:hint="Password"
@@ -79,25 +79,13 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="25dp"
-            android:background="@drawable/button_gradient_orange"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_orange"
             android:fontFamily="@font/montserrat_bold"
             android:padding="12dp"
+            android:textColor="@color/white"
             android:text="Login"
             android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/link_create_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:clickable="true"
-            android:fontFamily="@font/montserrat_bold"
-            android:gravity="center"
-            android:text="Not registered? Create an account"
-            android:textColor="@color/grey"
-            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -119,6 +107,20 @@
         android:text="Logging In..."
         android:textColor="@color/white"
         android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/link_create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+
+        android:clickable="true"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Not registered? Create an account"
+        android:textColor="@color/grey"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"/>
 
 
 </RelativeLayout>
