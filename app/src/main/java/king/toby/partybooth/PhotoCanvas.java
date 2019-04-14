@@ -10,8 +10,6 @@ import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.AsyncTask;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 
@@ -24,6 +22,7 @@ import java.util.List;
 public class PhotoCanvas extends View {
 
     private final String TAG = this.getClass().getSimpleName();
+
     private final Paint paint;
     private final Bitmap[] parts;
     private static String internalDir;
@@ -39,10 +38,11 @@ public class PhotoCanvas extends View {
     public PhotoCanvas(Context context, String internalDir, List<String> poses) {
         super(context);
 
-        this.internalDir = internalDir;
+        PhotoCanvas.internalDir = internalDir;
 
         Pair<Integer, Integer> sizes = this.findXY();
-        this.imageToSave = Bitmap.createBitmap(sizes.first, sizes.second, Bitmap.Config.ARGB_8888);
+
+        imageToSave = Bitmap.createBitmap(sizes.first, sizes.second, Bitmap.Config.ARGB_8888);
 
         this.poses = new ArrayList<>(poses);
         this.paint = new Paint();
@@ -121,32 +121,13 @@ public class PhotoCanvas extends View {
         File savedPhoto = new File(internalDir + "/finalimage.png");
 
         try (FileOutputStream out = new FileOutputStream(savedPhoto)) {
-            imageToSave.compress(Bitmap.CompressFormat.PNG, 50, out); // bmp is your Bitmap instance
+            imageToSave.compress(Bitmap.CompressFormat.PNG, 50, out);
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-
-//    public static AsyncTask<Void, Void, String> saveFile() {
-//        /// SAVE IMAGE HERE
-//        File savedPhoto = new File(internalDir + "/finalimage.png");
-//
-//        try (FileOutputStream out = new FileOutputStream(savedPhoto)) {
-//            return new AsyncTask<Void, Void, String>() {
-//                @Override
-//                protected String doInBackground (final Void... voids) {
-//                    imageToSave.compress(Bitmap.CompressFormat.PNG, 50, out); // bmp is your Bitmap instance
-//                    return "Done";
-//                }
-//            }.execute();
-//
-//        } catch (IOException e) {
-//            Log.e("SAVE FAILED", "Failed to save image");
-//            return null;
-//        }
-//    }
 
     public Bitmap applyFilter(Bitmap colourBitmap) {
         final Bitmap blackWhiteBitmap = Bitmap.createBitmap(colourBitmap.getWidth(), colourBitmap.getHeight(), Bitmap.Config.RGB_565);
@@ -164,9 +145,4 @@ public class PhotoCanvas extends View {
 
         return Pair.create(x, y);
     }
-
-    public static Bitmap getImageToSave() {
-        return imageToSave;
-    }
-
 }

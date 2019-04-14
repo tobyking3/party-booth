@@ -22,11 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DashboardActivity"
-            android:label="Get Name"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".LoginActivity"
             android:label="Login"
             android:screenOrientation="portrait"

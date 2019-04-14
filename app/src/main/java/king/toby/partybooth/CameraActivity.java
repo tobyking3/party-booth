@@ -31,14 +31,18 @@ public class CameraActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_camera);
+
         cameraKitView = findViewById(R.id.camera);
         countdownText = findViewById(R.id.text_countdown);
         poseContainer = findViewById(R.id.text_pose);
+
         currentPoses.clear();
+
         poseContainer.setText(generatePose());
+
         startTimer();
-        Log.d(TAG, "onCreate: cameraKitView => " + cameraKitView);
     }
 
     @Override
@@ -79,9 +83,6 @@ public class CameraActivity extends AppCompatActivity {
             return generatePose();
         } else {
             currentPoses.add(pose);
-            for (String poseItem : currentPoses){
-                Log.i("Pose name: ", poseItem);
-            }
             return pose;
         }
     }
@@ -139,15 +140,10 @@ public class CameraActivity extends AppCompatActivity {
                 try {
                     FileOutputStream outputStream = new FileOutputStream(savedPhoto.getPath());
                     outputStream.write(photo);
-
-                    String[] instrumentFileList = CameraActivity.this.fileList();
-                    Log.d(TAG, "onImage: list of files => " + Arrays.toString(instrumentFileList));
-                    Log.d(TAG, "imageCreated: " + filePath);
-
                     outputStream.close();
 
                 } catch (java.io.IOException e) {
-                    Log.e("Camera", "Capture Failed");
+                    Log.e(TAG, "Capture Failed");
                 }
             }
         });

@@ -102,9 +102,5 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
         fullScreenIntent.putExtra("image_name", clickedImage.getName());
 
         startActivity(fullScreenIntent);
-
-//        Log.i("LOGGED POSITION", "onItemClick: " + mUploads.get(position));
-
-
     }
 }

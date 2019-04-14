@@ -27,15 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private ImageButton mCameraBtn, mPartyCreationBtn;
-    private AppCompatButton mJoinPartyBtn;
-    private EditText mJoinPartyInput, mCreatePartyInput;
-    private String joinPartyID, createPartyID;
+    private EditText mJoinPartyInput;
     private FirebaseMethods firebaseMethods;
-
-    private DatabaseReference userRef;
-    private TextView partyNameTextView;
-    private TextView partyDescriptionTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,26 +36,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.activity_main);
 
-        //Create Firebase Object
         firebaseMethods = new FirebaseMethods(this);
 
-        mCameraBtn = findViewById(R.id.btn_camera);
-
-        mJoinPartyBtn = findViewById(R.id.btn_join_party);
         mJoinPartyInput = findViewById(R.id.input_join_party);
 
-        mPartyCreationBtn = findViewById(R.id.btn_party_creation);
-
+        AppCompatButton mJoinPartyBtn = findViewById(R.id.btn_join_party);
         mJoinPartyBtn.setOnClickListener(this);
+
+        ImageButton mPartyCreationBtn = findViewById(R.id.btn_party_creation);
         mPartyCreationBtn.setOnClickListener(this);
 
+        ImageButton mCameraBtn = findViewById(R.id.btn_camera);
         mCameraBtn.setOnClickListener(this);
 
-//        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        userRef = FirebaseDatabase.getInstance().getReference("users/").child(id);
-//        userRef.child("party_id").exists();
-
-        //INITIALIZE FIREBASE
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -74,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         };
     }
 
-    // =====================ON START======================
     @Override
     public void onStart() {
         super.onStart();
@@ -83,25 +68,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //updateUI(currentUser);
         mAuth.addAuthStateListener(mAuthListener);
         //Get user ID
-        String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        firebaseMethods.getUserPartyID(id, MainActivity.this);
+        if(currentUser != null){
+            String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            firebaseMethods.getUserPartyID(id, MainActivity.this);
+        }
     }
 
-    // =====================ON CLICK HANDLER======================
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_camera:
-                Log.d(TAG, "onClick: starting camera activity");
                 Intent startCameraActivity = new Intent(this, CameraActivity.class);
                 startActivity(startCameraActivity);
                 break;
             case R.id.btn_join_party:
-                joinPartyID = String.valueOf(mJoinPartyInput.getText());
+                String joinPartyID = String.valueOf(mJoinPartyInput.getText());
                 firebaseMethods.addUserPartyID(joinPartyID, this);
                 break;
             case R.id.btn_party_creation:
-                Toast.makeText(this, "PARTY CREATION", Toast.LENGTH_LONG).show();
                 Intent startCreatePartyActivity = new Intent(this, CreatePartyActivity.class);
                 startActivity(startCreatePartyActivity);
                 break;
@@ -119,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.settings_menu_logout:
-                Toast.makeText(this, "logout clicked", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Logging out.", Toast.LENGTH_LONG).show();
                 FirebaseAuth.getInstance().signOut();
                 return true;
                 default:
@@ -131,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCallback(String value) {
         if(value != null){
             firebaseMethods.addUserPartyID(value, this);
-            Log.i(TAG, "onCallback: " + value);
         }
     }
 }

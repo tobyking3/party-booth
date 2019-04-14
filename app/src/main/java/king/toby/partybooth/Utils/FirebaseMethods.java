@@ -22,9 +22,6 @@ import king.toby.partybooth.myCallbackInterface;
 
 public class FirebaseMethods {
     private static final String TAG = "FirebaseMethods";
-
-//    private String userID;
-
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
     private DatabaseReference myRef;
@@ -49,10 +46,8 @@ public class FirebaseMethods {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "onComplete: Authstate changed: " + mAuth.getCurrentUser().getUid());
-
                         } else {
-                            Toast.makeText(mContext, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -68,8 +63,7 @@ public class FirebaseMethods {
                             Log.d(TAG, "signInWithEmail:success: loggen in " + user.getUid() + " " + user.getEmail());
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(mContext, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -80,9 +74,11 @@ public class FirebaseMethods {
 
         try {
             String id = mAuth.getCurrentUser().getUid();
+
             myRef.child("users")
                     .child(id)
                     .setValue(user);
+
         } catch (NullPointerException npe) {
             Log.e(TAG, "User is not logged in");
         }
@@ -94,19 +90,12 @@ public class FirebaseMethods {
 
         try {
             partyID = partiesRef.push();
-            Log.d(TAG, "addNewParty: parties ref = " + partyID.getKey());
             partyID.setValue(party);
 
         } catch (Exception e) {
-            Log.e(TAG, "firebase messed up");
             e.printStackTrace();
         }
-
         return partyID.getKey();
-    }
-
-    public void getPartyID() {
-
     }
 
     public void addUserPartyID(String partyID, Activity activity) {

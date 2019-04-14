@@ -68,7 +68,7 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
 
         mAuth = FirebaseAuth.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");;
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
         uploadBtn = findViewById(R.id.btn_upload);
         uploadBtn.setOnClickListener(this);
@@ -88,8 +88,8 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
         photoCanvas = new PhotoCanvas(this, internalDir, poses);
         Canvas finalCanvas = new Canvas();
         photoCanvas.draw(finalCanvas);
-        ImageView iv = findViewById(R.id.img_bitmap);
-        iv.setImageBitmap(BitmapFactory.decodeFile(internalDir + "/finalimage.png"));
+        ImageView mImageView = findViewById(R.id.img_bitmap);
+        mImageView.setImageBitmap(BitmapFactory.decodeFile(internalDir + "/finalimage.png"));
 
         FirebaseUser user = mAuth.getCurrentUser();
         String userID = user.getUid();

@@ -36,12 +36,7 @@ public class AddPartyToUserListener implements ValueEventListener {
         Party p = dataSnapshot.getValue(Party.class);
 
         if (p != null) {
-            Log.i("THIS IS PARTY", String.valueOf(dataSnapshot.getKey()));
-            Log.i("LOGGING P", String.valueOf(p));
-            Log.i("DATA SNAPSHOT", String.valueOf(dataSnapshot));
-
             String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            Log.i(TAG, String.format("User Id: %s \t Party: %s", id, p));
 
             userRef.child(id)
                     .child("party_id")
