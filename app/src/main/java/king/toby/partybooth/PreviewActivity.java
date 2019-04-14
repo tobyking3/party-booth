@@ -109,7 +109,6 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
                 } else {
                     uploadFile();
                 }
-
                 break;
         }
     }
@@ -120,10 +119,6 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
 
     private void uploadFile() {
         if (mImageUri != null) {
-
-//            currentPartyID + "/" +
-
-            //final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + ".jpg");
 
             final StorageReference fileReference = mStorageRef.child(currentPartyID).child(System.currentTimeMillis() + ".jpg");
 
@@ -147,7 +142,6 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
                                     final String downloadUrl = uri.toString();
                                     Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), downloadUrl);
                                     String uploadId = mDatabaseRef.push().getKey();
-                                    Log.i(TAG, "WAHOOOOOOOOO" + uploadId);
                                     mDatabaseRef.child(currentPartyID).child(uploadId).setValue(upload);
                                 }
                             });

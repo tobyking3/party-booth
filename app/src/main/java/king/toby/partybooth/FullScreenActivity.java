@@ -78,9 +78,6 @@ public class FullScreenActivity extends AppCompatActivity {
                                     fOut.close();
                                 } catch (Exception e) {
                                 }
-
-
-
                             }
 
                             @Override

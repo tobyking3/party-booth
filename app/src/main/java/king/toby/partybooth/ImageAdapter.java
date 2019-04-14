@@ -49,19 +49,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 .into(holder.imageView);
     }
 
-
-
-
-
     @Override
     public int getItemCount() {
         return mUploads.size();
     }
-
-
-
-
-
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewName;
