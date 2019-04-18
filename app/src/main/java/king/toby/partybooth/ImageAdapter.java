@@ -27,10 +27,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     }
 
     ImageAdapter(Context context, List<Upload> uploads) {
-
         mContext = context;
         mUploads = uploads;
-
     }
 
     @NonNull
