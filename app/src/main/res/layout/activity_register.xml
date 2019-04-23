@@ -3,12 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient_slate">
+    android:background="@color/grey">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/background_gradient_orange"
         android:paddingTop="55dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
@@ -30,6 +37,15 @@
             android:textColor="@color/white"
             android:textSize="21sp"
             android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -97,6 +113,8 @@
 
     </LinearLayout>
 
+    </LinearLayout>
+
     <ProgressBar
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -113,7 +131,7 @@
         android:layout_alignBottom="@id/progressBar"
         android:fontFamily="@font/montserrat_bold"
         android:text="Creating account..."
-        android:textColor="@color/white"
+        android:textColor="@color/lightOrange"
         android:textSize="21dp" />
 
     <TextView
@@ -125,9 +143,8 @@
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="Already got an account? Sign in"
-        android:textColor="@color/grey"
+        android:textColor="@color/lightOrange"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"/>
-
 
 </RelativeLayout>

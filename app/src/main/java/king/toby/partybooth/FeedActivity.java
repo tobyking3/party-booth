@@ -1,12 +1,17 @@
 package king.toby.partybooth;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -37,7 +42,12 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
 
     private ProgressBar mProgressCircle;
 
+    private ImageButton mBackBtn;
+
     private List<Upload> mUploads;
+
+    private Menu mMainMenu;
+    private MenuItem mMainMenuItem;
 
     String currentPartyID;
 
@@ -56,6 +66,36 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mProgressCircle = findViewById(R.id.progress_circle);
+
+        ImageButton mCameraBtn = findViewById(R.id.btn_camera);
+        mCameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startCameraActivity = new Intent(FeedActivity.this, CameraActivity.class);
+                startActivity(startCameraActivity);
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bottom_bar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.btn_feed:
+                        break;
+                    case R.id.btn_back:
+                        Intent startMainActivity = new Intent(FeedActivity.this, MainActivity.class);
+                        startActivity(startMainActivity);
+                        break;
+                }
+
+                return false;
+            }
+        });
+
+        mMainMenu = bottomNavigationView.getMenu();
+        mMainMenuItem = mMainMenu.getItem(2);
+        mMainMenuItem.setChecked(true);
 
         mUploads = new ArrayList<>();
 

@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +35,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".CreatePartyActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="CreateParty"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
@@ -43,16 +46,24 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".PreviewActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="Camera"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".FeedActivity" />
-
+        <activity
+            android:name=".FeedActivity"
+            android:label="Feed"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            />
+        <activity
+            android:name=".FullScreenActivity"
+            android:label="FullScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <activity android:name=".FullScreenActivity"></activity>
     </application>
 
 </manifest>

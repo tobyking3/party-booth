@@ -3,7 +3,11 @@ package king.toby.partybooth.listeners;
 import android.app.Activity;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,12 +27,17 @@ public class AddPartyToUserListener implements ValueEventListener {
     private final DatabaseReference userRef;
     private final TextView partyNameTextView;
     private final TextView partyDescriptionTextView;
+    private final AppCompatButton joinButton;
+    private final AppCompatEditText joinInput;
 
     public AddPartyToUserListener(Activity activity) {
         userRef = FirebaseDatabase.getInstance().getReference("users/");
         this.activity = activity;
         this.partyNameTextView = activity.findViewById(R.id.text_party_name);
         this.partyDescriptionTextView = activity.findViewById(R.id.text_party_description);
+
+        this.joinButton = activity.findViewById(R.id.btn_join_party);
+        this.joinInput = activity.findViewById(R.id.input_join_party);
     }
 
     @Override
@@ -44,6 +53,8 @@ public class AddPartyToUserListener implements ValueEventListener {
 
             partyNameTextView.setText(p.getPartyName());
             partyDescriptionTextView.setText(p.getPartyDescription());
+            joinInput.setVisibility(View.GONE);
+            joinButton.setVisibility(View.GONE);
 
         } else {
             partyDescriptionTextView.setText("Party code not recognized, please try again!");

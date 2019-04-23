@@ -60,7 +60,7 @@ public class FirebaseMethods {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Log.d(TAG, "signInWithEmail:success: loggen in " + user.getUid() + " " + user.getEmail());
+                            Log.d(TAG, "signInWithEmail:success: logged in " + user.getUid() + " " + user.getEmail());
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(mContext, "Authentication failed.", Toast.LENGTH_SHORT).show();

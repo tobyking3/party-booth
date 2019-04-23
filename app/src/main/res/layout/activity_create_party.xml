@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient_slate">
+    android:background="@color/grey">
 
     <ImageButton
         android:id="@+id/btn_settings"
@@ -35,6 +35,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/background_gradient_orange"
         android:paddingTop="55dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
@@ -57,6 +64,15 @@
             android:textColor="@color/white"
             android:textSize="21sp"
             android:textStyle="bold" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -85,8 +101,8 @@
                 android:id="@+id/input_create_party_description"
                 android:hint=" Write a message for your guests"
                 android:inputType="textMultiLine"
-                android:lines="8"
-                android:minLines="6"
+                android:lines="10"
+                android:minLines="4"
                 android:gravity="top|left"
                 android:maxLines="10"
                 android:layout_height="wrap_content"
@@ -102,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/button_gradient_orange"
+            android:background="@drawable/button_orange"
             android:fontFamily="@font/montserrat_bold"
             android:padding="12dp"
             android:text="Create party"
@@ -116,7 +132,7 @@
             android:layout_marginBottom="10sp"
             android:fontFamily="@font/montserrat"
             android:text="Your sharable party code:"
-            android:textColor="@color/white"
+            android:textColor="@color/lightSlate"
             android:textSize="16sp"
             android:textStyle="bold"/>
 
@@ -134,6 +150,7 @@
             android:textSize="21sp"
             android:textStyle="bold" />
 
+    </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

@@ -3,10 +3,12 @@ package king.toby.partybooth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private EditText mJoinPartyInput;
+    private Menu mMainMenu;
+    private MenuItem mMainMenuItem;
     private FirebaseMethods firebaseMethods;
 
     @Override
@@ -39,6 +43,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firebaseMethods = new FirebaseMethods(this);
 
         mJoinPartyInput = findViewById(R.id.input_join_party);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bottom_bar);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.btn_feed:
+                        Intent startFeedActivity = new Intent(MainActivity.this, FeedActivity.class);
+                        startActivity(startFeedActivity);
+                        break;
+                    case R.id.btn_back:
+                        break;
+                }
+
+                return false;
+            }
+        });
+
+        mMainMenu = bottomNavigationView.getMenu();
+        mMainMenuItem = mMainMenu.getItem(0);
+        mMainMenuItem.setChecked(true);
 
         AppCompatButton mJoinPartyBtn = findViewById(R.id.btn_join_party);
         mJoinPartyBtn.setOnClickListener(this);

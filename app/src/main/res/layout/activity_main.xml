@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient_slate">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/grey">
 
     <ImageButton
         android:id="@+id/btn_settings"
@@ -35,69 +35,83 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="55dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
+        >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:src="@drawable/logo"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="25dp"/>
-
-        <TextView
-            android:id="@+id/text_party_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="21sp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="@string/Get_Name_Text"
-            android:textColor="@color/white"
-            android:textSize="21sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/text_party_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="21sp"
-            android:fontFamily="@font/montserrat"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:padding="2dp"
-            android:text="Enter the code provided by your event organiser to join the party and start sharing and viewing your PartyBooth photos."/>
-
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:background="@drawable/background_gradient_orange"
+            android:paddingTop="55dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
 
-            <EditText
-                android:id="@+id/input_join_party"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@color/white"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="25dp"/>
+
+            <TextView
+                android:id="@+id/text_party_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="21sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/Get_Name_Text"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <TextView
+                android:id="@+id/text_party_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/montserrat"
-                android:hint=" Party Code"
-                android:inputType="text" />
+                android:textColor="@color/lightSlate"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="2dp"
+                android:text="Enter a party code to start sharing and viewing your PartyBooth photos."/>
 
-        </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="8dp">
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_join_party"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/button_orange"
-            android:fontFamily="@font/montserrat_bold"
-            android:padding="12dp"
-            android:text="Join a party"
-            android:textColor="@color/white" />
+                <EditText
+                    android:id="@+id/input_join_party"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/white"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="text" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_join_party"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_orange"
+                android:fontFamily="@font/montserrat_bold"
+                android:padding="12dp"
+                android:text="Join a party"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -113,5 +127,20 @@
         android:background="@drawable/button_gradient_orange"
         android:elevation="8dp"
         android:src="@drawable/ic_camera"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/nav_bottom"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/border_top">
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nav_bottom_bar"
+            app:menu="@menu/main_menu">
+        </android.support.design.widget.BottomNavigationView>
+
+    </RelativeLayout>
 
 </RelativeLayout>
