@@ -142,7 +142,7 @@
         android:clickable="true"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
-        android:text="Already got an account? Sign in"
+        android:text="Already have an account? Sign in"
         android:textColor="@color/lightOrange"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"/>

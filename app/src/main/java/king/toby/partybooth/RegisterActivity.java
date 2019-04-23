@@ -1,5 +1,6 @@
 package king.toby.partybooth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -46,6 +47,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mProgressBar.setVisibility(View.GONE);
         mPleaseWait.setVisibility(View.GONE);
+
+        TextView mLoginBtn = findViewById(R.id.link_sign_in);
+        mLoginBtn.setOnClickListener(this);
 
         AppCompatButton mRegisterBtn = findViewById(R.id.btn_register);
         mRegisterBtn.setOnClickListener(this);
@@ -109,6 +113,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     mPleaseWait.setVisibility(View.VISIBLE);
                     firebaseMethods.registerNewEmail(registerEmail, registerPassword);
                 }
+                break;
+            case R.id.link_sign_in:
+                Intent startLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(startLoginActivity);
                 break;
         }
     }

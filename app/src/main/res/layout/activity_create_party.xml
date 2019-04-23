@@ -6,7 +6,7 @@
     android:background="@color/grey">
 
     <ImageButton
-        android:id="@+id/btn_settings"
+        android:id="@+id/btn_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -15,64 +15,37 @@
         android:padding="10dp"
         android:background="@android:color/transparent"
         android:elevation="8dp"
-        android:src="@drawable/ic_settings"
+        android:src="@drawable/ic_return"
         android:onClick="showSettings"/>
 
-    <ImageButton
-        android:id="@+id/btn_party_creation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="5sp"
-        android:layout_marginRight="5sp"
-        android:padding="10dp"
-        android:background="@android:color/transparent"
-        android:elevation="8dp"
-        android:src="@drawable/ic_create_party"
-        android:onClick="showSettings"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="vertical"
-        android:background="@drawable/background_gradient_orange"
-        android:paddingTop="55dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:src="@drawable/logo"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="25dp"/>
-
-        <TextView
-            android:id="@+id/text_create_party"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Create your party"
-            android:textColor="@color/white"
-            android:textSize="21sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="10dp"
+        android:paddingTop="55dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Party Creation"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/lightSlate"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set up a party name and message which will be seen by all members of the party"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/lightSlate"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -85,8 +58,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:background="@color/white"
-                android:fontFamily="@font/montserrat"
                 android:hint=" Enter Party Name"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/lightSlate"
+                android:textSize="16sp"
                 android:inputType="text" />
 
         </android.support.design.widget.TextInputLayout>
@@ -99,7 +74,7 @@
 
             <EditText
                 android:id="@+id/input_create_party_description"
-                android:hint=" Write a message for your guests"
+                android:hint=" Write a message to greet your guests"
                 android:inputType="textMultiLine"
                 android:lines="10"
                 android:minLines="4"
@@ -109,6 +84,9 @@
                 android:layout_width="match_parent"
                 android:scrollbars="vertical"
                 android:background="@color/white"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/lightSlate"
+                android:textSize="16sp"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -139,18 +117,20 @@
         <TextView
             android:id="@+id/text_party_code"
             android:textIsSelectable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/montserrat_bold"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text=""
-            android:textColor="@color/lightOrange"
-            android:textSize="21sp"
-            android:textStyle="bold" />
+            android:text="---"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="#bac3c6"/>
 
     </LinearLayout>
-    </LinearLayout>
+
 
 </RelativeLayout>

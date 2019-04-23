@@ -8,6 +8,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +40,9 @@ public class CreatePartyActivity extends AppCompatActivity implements View.OnCli
         mCreatePartyInputDescription = findViewById(R.id.input_create_party_description);
         mGeneratedPartyCode = findViewById(R.id.text_party_code);
 
+        ImageButton mReturnBtn = findViewById(R.id.btn_return);
+        mReturnBtn.setOnClickListener(this);
+
         AppCompatButton mCreatePartyBtn = findViewById(R.id.btn_create_party);
         mCreatePartyBtn.setOnClickListener(this);
 
@@ -63,6 +67,11 @@ public class CreatePartyActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.btn_return:
+                Intent startMainActivity = new Intent(CreatePartyActivity.this, MainActivity.class);
+                startActivity(startMainActivity);
+                break;
+
             case R.id.btn_create_party:
                 String createName = String.valueOf(mCreatePartyInputName.getText());
                 String createDescription = String.valueOf(mCreatePartyInputDescription.getText());

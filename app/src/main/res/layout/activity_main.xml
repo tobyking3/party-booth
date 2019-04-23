@@ -78,6 +78,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/bad_script"
+                android:padding="2dp"
+                android:text="Enter a party code to start sharing and viewing your PartyBooth photos."
+                android:textColor="@color/lightSlate"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/text_party_instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/montserrat"
                 android:textColor="@color/lightSlate"
                 android:textSize="16sp"

@@ -42,12 +42,7 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
 
     private ProgressBar mProgressCircle;
 
-    private ImageButton mBackBtn;
-
     private List<Upload> mUploads;
-
-    private Menu mMainMenu;
-    private MenuItem mMainMenuItem;
 
     String currentPartyID;
 
@@ -93,8 +88,8 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
             }
         });
 
-        mMainMenu = bottomNavigationView.getMenu();
-        mMainMenuItem = mMainMenu.getItem(2);
+        Menu mMainMenu = bottomNavigationView.getMenu();
+        MenuItem mMainMenuItem = mMainMenu.getItem(2);
         mMainMenuItem.setChecked(true);
 
         mUploads = new ArrayList<>();

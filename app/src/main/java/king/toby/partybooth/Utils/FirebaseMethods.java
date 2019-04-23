@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -14,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import king.toby.partybooth.R;
 import king.toby.partybooth.listeners.AddPartyToUserListener;
 import king.toby.partybooth.listeners.GetUserPartyIDListener;
 import king.toby.partybooth.models.Party;
@@ -48,6 +52,12 @@ public class FirebaseMethods {
                             Log.d(TAG, "onComplete: Authstate changed: " + mAuth.getCurrentUser().getUid());
                         } else {
                             Toast.makeText(mContext, "Authentication failed.", Toast.LENGTH_SHORT).show();
+
+                            ProgressBar mProgressBar = ((Activity) mContext).findViewById(R.id.progressBar);
+                            TextView mPleaseWait = ((Activity) mContext).findViewById(R.id.pleaseWait);
+
+                            mProgressBar.setVisibility(View.GONE);
+                            mPleaseWait.setVisibility(View.GONE);
                         }
                     }
                 });
@@ -64,6 +74,12 @@ public class FirebaseMethods {
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(mContext, "Authentication failed.", Toast.LENGTH_SHORT).show();
+
+                            ProgressBar mProgressBar = ((Activity) mContext).findViewById(R.id.progressBar);
+                            TextView mPleaseWait = ((Activity) mContext).findViewById(R.id.pleaseWait);
+
+                            mProgressBar.setVisibility(View.GONE);
+                            mPleaseWait.setVisibility(View.GONE);
                         }
                     }
                 });
