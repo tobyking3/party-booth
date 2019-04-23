@@ -109,6 +109,14 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
                     mUploads.add(upload);
                 }
 
+                int size = mUploads.size();
+
+                for (int i = 0; i < size / 2; i++) {
+                    final Upload upload = mUploads.get(i);
+                    mUploads.set(i, mUploads.get(size - i - 1));
+                    mUploads.set(size - i - 1, upload);
+                }
+
                 mAdapter = new ImageAdapter(FeedActivity.this, mUploads);
                 mRecyclerView.setAdapter(mAdapter);
                 mAdapter.setOnItemClickListener(FeedActivity.this);
