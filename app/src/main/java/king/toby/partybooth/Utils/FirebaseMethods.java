@@ -114,8 +114,8 @@ public class FirebaseMethods {
         return partyID.getKey();
     }
 
-    public void addUserPartyID(String partyID, Activity activity) {
-        partiesRef.child(partyID).addListenerForSingleValueEvent(new AddPartyToUserListener(activity));
+    public void addUserPartyID(String partyID, Activity activity, myCallbackInterface cb) {
+        partiesRef.child(partyID).addListenerForSingleValueEvent(new AddPartyToUserListener(activity, cb));
     }
 
     public void getUserPartyID(String userID, myCallbackInterface cb) {

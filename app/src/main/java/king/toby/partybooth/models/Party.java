@@ -30,6 +30,11 @@ public class Party {
         this.partyDescription = partyDescription;
     }
 
+
+    public boolean isNull(){
+        return this.getPartyName() ==  null || this.getPartyDescription() == null;
+    }
+
     @Override
     public String toString() {
         return "Party{" +

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import king.toby.partybooth.Utils.FirebaseMethods;
+import king.toby.partybooth.models.Party;
 
 public class FeedActivity extends AppCompatActivity implements myCallbackInterface, ImageAdapter.OnItemClickListener {
     private FirebaseMethods firebaseMethods;
@@ -97,7 +98,7 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
     }
 
-    public void onCallback(String partyID){
+    public void onCallback(String partyID) {
 
         currentPartyID = partyID;
 
@@ -130,6 +131,11 @@ public class FeedActivity extends AppCompatActivity implements myCallbackInterfa
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onCallback(Party party) {
+        //not used
     }
 
     @Override

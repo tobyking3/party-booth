@@ -109,7 +109,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10sp"
             android:fontFamily="@font/montserrat"
-            android:text="Your sharable party code:"
+            android:text="Your shareable party code:"
             android:textColor="@color/lightSlate"
             android:textSize="16sp"
             android:textStyle="bold"/>

@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import king.toby.partybooth.Utils.FirebaseMethods;
+import king.toby.partybooth.models.Party;
 
 public class PreviewActivity extends AppCompatActivity implements View.OnClickListener, myCallbackInterface {
 
@@ -115,6 +116,11 @@ public class PreviewActivity extends AppCompatActivity implements View.OnClickLi
 
     public void onCallback(String partyID){
         currentPartyID = partyID;
+    }
+
+    @Override
+    public void onCallback(Party party) {
+        //not used
     }
 
     private void uploadFile() {

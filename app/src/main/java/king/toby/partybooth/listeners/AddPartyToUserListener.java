@@ -19,53 +19,40 @@ import com.google.firebase.database.ValueEventListener;
 
 import king.toby.partybooth.R;
 import king.toby.partybooth.models.Party;
+import king.toby.partybooth.myCallbackInterface;
 
 public class AddPartyToUserListener implements ValueEventListener {
     private static final String TAG = "AddPartyToUserListener";
 
-    private final Activity activity;
     private final DatabaseReference userRef;
-    private final TextView partyNameTextView;
-    private final TextView partyDescriptionTextView;
-    private final AppCompatButton joinButton;
-    private final AppCompatEditText joinInput;
-    private final TextView partyInstructionsTextView;
 
-    public AddPartyToUserListener(Activity activity) {
+
+    private myCallbackInterface callback;
+
+    public AddPartyToUserListener(Activity activity, myCallbackInterface cb) {
+
+        callback = cb;
+
         userRef = FirebaseDatabase.getInstance().getReference("users/");
-        this.activity = activity;
-        this.partyNameTextView = activity.findViewById(R.id.text_party_name);
-        this.partyDescriptionTextView = activity.findViewById(R.id.text_party_description);
-        this.partyInstructionsTextView = activity.findViewById(R.id.text_party_instructions);
 
-        this.joinButton = activity.findViewById(R.id.btn_join_party);
-        this.joinInput = activity.findViewById(R.id.input_join_party);
     }
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
         Party p = dataSnapshot.getValue(Party.class);
 
-        if (p != null) {
+        if ( p != null && !p.isNull()) {
             String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
             userRef.child(id)
                     .child("party_id")
                     .setValue(dataSnapshot.getKey());
 
-            partyNameTextView.setText(p.getPartyName());
-            partyDescriptionTextView.setText(p.getPartyDescription());
-            partyDescriptionTextView.setVisibility(View.VISIBLE);
-
-            joinInput.setVisibility(View.GONE);
-            joinButton.setVisibility(View.GONE);
-            partyInstructionsTextView.setVisibility(View.GONE);
-
         } else {
-            partyInstructionsTextView.setText("Party code not recognized, please try again!");
-            partyInstructionsTextView.setTextColor(Color.RED);
+
             Log.e(TAG, "Party doesn't exist");
         }
+        callback.onCallback(p);
     }
 
     @Override
