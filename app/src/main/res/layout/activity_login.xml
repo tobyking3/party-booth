@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Welcome to PartyBooth"
+            android:text="@string/welcome_to_partybooth"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/montserrat"
-            android:text="Login to get the party started!"
+            android:text="@string/login_title"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -68,7 +68,7 @@
                 android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 />
 
@@ -86,7 +86,7 @@
                 android:layout_height="30dp"
                 android:background="@color/white"
                 android:fontFamily="@font/montserrat"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 />
 
@@ -101,7 +101,7 @@
             android:fontFamily="@font/montserrat_bold"
             android:padding="12dp"
             android:textColor="@color/white"
-            android:text="Login"
+            android:text="@string/login"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -123,7 +123,7 @@
         android:layout_alignEnd="@id/progressBar"
         android:layout_alignBottom="@id/progressBar"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Logging In..."
+        android:text="@string/logging_in"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -132,11 +132,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-
         android:clickable="true"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
-        android:text="Not registered? Create an account"
+        android:text="@string/create_an_account"
         android:textColor="@color/lightOrange"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"/>

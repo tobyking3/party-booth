@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Loading Photos"
+        android:text="@string/loading_photos"
         android:textColor="@color/white"
         android:layout_centerInParent="true"
         android:fontFamily="@font/montserrat_bold"

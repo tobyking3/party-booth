@@ -27,7 +27,7 @@
             android:layout_gravity="center_horizontal"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
-            android:text="Wishing you joy, love and happiness on your wedding day and as you begin your new life together."
+            android:text="@string/default_message"
             android:textColor="@android:color/black"
             android:background="@color/grey"
             android:ellipsize="end"

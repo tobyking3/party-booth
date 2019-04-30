@@ -42,7 +42,7 @@
                 android:layout_marginBottom="10dp"
                 android:padding="10dp"
                 android:gravity="start"
-                android:hint="Enter Message..."
+                android:hint="@string/enter_message"
                 android:background="@color/white"
                 />
 
@@ -52,7 +52,7 @@
                 android:layout_weight="0.3"
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
-                android:text="upload"
+                android:text="@string/upload_txt"
                 android:id="@+id/btn_upload"
                 android:background="@drawable/button_orange"
                 android:stateListAnimator="@null"/>
